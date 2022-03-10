@@ -15,7 +15,7 @@ const reverseStringPromise = str => {
 // test function expects two params, the first is the description of the test, the second is the function to test
 
 test("Must contain a string", () => {
-    //the comparision has to be excatly the same as the string
+    //the comparision has to be exactly the same as the string
     expect(text).toMatch(/world/);
 });
 
