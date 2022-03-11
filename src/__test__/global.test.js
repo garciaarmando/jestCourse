@@ -5,7 +5,7 @@ const reverseString = (str, callback) => {
 };
 const reverseStringPromise = str => {
     return new Promise((resolve, reject) => {
-        if (!string) {
+        if (!str) {
             reject(Error("String is empty"));
         }
         resolve(str.split("").reverse().join(""));
@@ -42,4 +42,31 @@ test("Testing a callback", () => {
     });
 });
 
-test("Testing a promise", () => {});
+test("Testing a promise", () => {
+    return reverseStringPromise("Hello").then(str => {
+        expect(str).toBe("olleH");
+    });
+});
+
+//testing a promise using async+await
+
+test("Testing a promise with async-await", async() => {
+    const str = await reverseStringPromise("Hello");
+    expect(str).toBe("olleH");
+});
+
+//working with functions that will be executed before or after a test using the function afterEach()
+
+afterEach(() => console.log("After every test"));
+
+//instead, using afterAll() allows you to execute some code after all the tests
+
+afterAll(() => console.log("After all the tests"));
+
+//using beforeEach() allows you to execute some code before every test
+
+beforeEach(() => console.log("Before every test"));
+
+//using beforeAll() allows you to execute some code before all the tests
+
+beforeAll(() => console.log("Before all the tests"));
